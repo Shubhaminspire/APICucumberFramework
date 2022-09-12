@@ -14,7 +14,7 @@ public class PlaceData {
     // Request Spec Builder that can be used anywhere where we are sending common chaining across Test
 
 
-    public static AddPlace addPlace() {
+    public static AddPlace addPlace(String name, String address, String language) {
 
         AddPlace place = new AddPlace();
         Location loc = new Location();
@@ -22,11 +22,11 @@ public class PlaceData {
         loc.setLng(34.89813842);
 
         place.setAccuracy(100);
-        place.setName("Shubham");
+        place.setName(name);
         place.setPhone_number("(+91) 8700195272");
-        place.setAddress("149A, Main Street, Jaipur 302012");
+        place.setAddress(address);
         place.setWebsite("http://google.com");
-        place.setLanguage("Indian");
+        place.setLanguage(language);
         place.setTypes(types);
         place.setLocation(loc);
         return place;

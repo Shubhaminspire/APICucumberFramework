@@ -13,23 +13,27 @@ import java.util.Properties;
 
 public class Utils {
 
-    RequestSpecification reqSpec;
+   public static RequestSpecification reqSpec;
 
-    ResponseSpecification resSpec;
+   public static  ResponseSpecification resSpec;
     File file = new File("./logs/Place.txt");
-    PrintStream printStream;
-    FileInputStream fileInputStream;
-    Properties properties;
+    public static PrintStream printStream;
+    public static FileInputStream fileInputStream;
+    public static Properties properties;
 
     public RequestSpecification reqSpec() throws IOException {
         //System.out.println(getGlobalValue("value"));
-      printStream  = new PrintStream(file);
-        reqSpec = new RequestSpecBuilder().setBaseUri(getGlobalValue("baseUrl"))
-                .addQueryParam("key", "qaclick123")
-                //Added Logs to see the Request and Response in External File
-                .addFilter(RequestLoggingFilter.logRequestTo(printStream))
-                .addFilter(ResponseLoggingFilter.logResponseTo(printStream))
-                .setContentType(ContentType.JSON).build();
+        if(reqSpec == null){
+            printStream = new PrintStream(file);
+            reqSpec = new RequestSpecBuilder().setBaseUri(getGlobalValue("baseUrl"))
+                    .addQueryParam("key", "qaclick123")
+                    //Added Logs to see the Request and Response in External File
+                    .addFilter(RequestLoggingFilter.logRequestTo(printStream))
+                    .addFilter(ResponseLoggingFilter.logResponseTo(printStream))
+                    .setContentType(ContentType.JSON).build();
+            return reqSpec;
+        }
+
         return reqSpec;
     }
 
@@ -46,9 +50,6 @@ public class Utils {
         properties.load(fileInputStream);
 
         return properties.getProperty(key);
-
-
-
 
 
     }

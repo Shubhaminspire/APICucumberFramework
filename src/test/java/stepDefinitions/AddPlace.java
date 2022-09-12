@@ -25,11 +25,11 @@ public class AddPlace extends Utils {
 
 
 
-    @Given("Add Place Payload")
-    public void add_place_payload() throws IOException {
+    @Given("Add Place Payload {string} {string} {string}")
+    public void add_place_payload(String name, String address, String language) throws IOException {
 
 
-        request = given().log().all().spec(reqSpec()).body(PlaceData.addPlace());
+        request = given().log().all().spec(reqSpec()).body(PlaceData.addPlace(name,address,language));
         System.out.println("Hi");
     }
 
