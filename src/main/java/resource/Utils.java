@@ -8,22 +8,23 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
-import java.util.logging.Logger;
+import java.io.*;
+import java.util.Properties;
 
 public class Utils {
-    public static String Url = "https://rahulshettyacademy.com";
+
     RequestSpecification reqSpec;
 
     ResponseSpecification resSpec;
     File file = new File("./logs/Place.txt");
     PrintStream printStream;
+    FileInputStream fileInputStream;
+    Properties properties;
 
-    public RequestSpecification reqSpec() throws FileNotFoundException {
+    public RequestSpecification reqSpec() throws IOException {
+        //System.out.println(getGlobalValue("value"));
       printStream  = new PrintStream(file);
-        reqSpec = new RequestSpecBuilder().setBaseUri(Url)
+        reqSpec = new RequestSpecBuilder().setBaseUri(getGlobalValue("baseUrl"))
                 .addQueryParam("key", "qaclick123")
                 //Added Logs to see the Request and Response in External File
                 .addFilter(RequestLoggingFilter.logRequestTo(printStream))
@@ -36,6 +37,20 @@ public class Utils {
         resSpec = new ResponseSpecBuilder()
                 .expectContentType(ContentType.JSON).build();
         return resSpec;
+    }
+
+    public String getGlobalValue(String key) throws IOException {
+        properties = new Properties();
+        fileInputStream = new FileInputStream("src/main/java/resource/global.properties");
+
+        properties.load(fileInputStream);
+
+        return properties.getProperty(key);
+
+
+
+
+
     }
 
 }
