@@ -10,6 +10,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import resource.PlaceData;
+import resource.Resource;
 import resource.Utils;
 
 import java.io.FileNotFoundException;
@@ -23,20 +24,20 @@ public class AddPlace extends Utils {
     JsonPath path;
     RequestSpecification request;
 
+    Resource resource;
 
 
     @Given("Add Place Payload {string} {string} {string}")
     public void add_place_payload(String name, String address, String language) throws IOException {
 
-
-        request = given().log().all().spec(reqSpec()).body(PlaceData.addPlace(name,address,language));
+        request = given().log().all().spec(reqSpec()).body(PlaceData.addPlace(name, address, language));
         System.out.println("Hi");
     }
 
     @When("User call the {string} API with POST Http Method")
-    public void user_call_the_api_with_post_http_method(String string) {
-
-        response = request.when().post("/maps/api/place/add/json").then().log().all()
+    public void user_call_the_api_with_post_http_method(String resou) {
+      resource = Resource.valueOf(resou);
+        response = request.when().post(resource.getResource()).then().log().all()
                 .spec(resSpec()).extract().response();
     }
 
