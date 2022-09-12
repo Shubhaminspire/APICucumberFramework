@@ -4,6 +4,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.RestAssured;
+import io.restassured.internal.http.HTTPBuilder;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -21,8 +23,10 @@ public class AddPlace extends Utils {
     RequestSpecification request;
 
 
+
     @Given("Add Place Payload")
     public void add_place_payload() throws FileNotFoundException {
+
 
         request = given().log().all().spec(reqSpec()).body(PlaceData.addPlace());
         System.out.println("Hi");

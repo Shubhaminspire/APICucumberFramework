@@ -25,6 +25,7 @@ public class Utils {
       printStream  = new PrintStream(file);
         reqSpec = new RequestSpecBuilder().setBaseUri(Url)
                 .addQueryParam("key", "qaclick123")
+                //Added Logs to see the Request and Response in External File
                 .addFilter(RequestLoggingFilter.logRequestTo(printStream))
                 .addFilter(ResponseLoggingFilter.logResponseTo(printStream))
                 .setContentType(ContentType.JSON).build();
