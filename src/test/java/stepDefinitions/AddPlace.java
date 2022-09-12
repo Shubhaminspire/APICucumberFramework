@@ -7,7 +7,7 @@ import io.cucumber.java.en.When;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import resource.AddPlaceData;
+import resource.PlaceData;
 import resource.Utils;
 
 import static io.restassured.RestAssured.given;
@@ -22,7 +22,7 @@ public class AddPlace extends Utils {
     @Given("Add Place Payload")
     public void add_place_payload() {
 
-        request = given().log().all().spec(reqSpec()).body(AddPlaceData.addPlace());
+        request = given().log().all().spec(reqSpec()).body(PlaceData.addPlace());
         System.out.println("Hi");
     }
 

@@ -6,6 +6,8 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
+import java.util.logging.Logger;
+
 public class Utils {
     public static String Url = "https://rahulshettyacademy.com";
     RequestSpecification reqSpec;
@@ -24,5 +26,6 @@ public class Utils {
                 .expectContentType(ContentType.JSON).build();
         return resSpec;
     }
+
 }
 

@@ -1,17 +1,12 @@
 package resource;
 
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.builder.ResponseSpecBuilder;
-import io.restassured.http.ContentType;
-import io.restassured.specification.RequestSpecification;
-import io.restassured.specification.ResponseSpecification;
 import pojo.AddPlace;
 import pojo.Location;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddPlaceData {
+public class PlaceData {
 
 
     private static List<String> types = new ArrayList<>(List.of("shoe park", "shoe"));
