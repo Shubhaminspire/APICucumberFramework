@@ -19,8 +19,6 @@ public class AddPlace {
     private static List<String> types = new ArrayList<>(List.of("shoe park", "shoe"));
     Response response;
     JsonPath path;
-
-
     RequestSpecification request;
 
 
