@@ -10,6 +10,8 @@ import io.restassured.specification.RequestSpecification;
 import resource.PlaceData;
 import resource.Utils;
 
+import java.io.FileNotFoundException;
+
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,7 +22,7 @@ public class AddPlace extends Utils {
 
 
     @Given("Add Place Payload")
-    public void add_place_payload() {
+    public void add_place_payload() throws FileNotFoundException {
 
         request = given().log().all().spec(reqSpec()).body(PlaceData.addPlace());
         System.out.println("Hi");

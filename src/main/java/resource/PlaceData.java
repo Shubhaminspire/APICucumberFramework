@@ -9,7 +9,7 @@ import java.util.List;
 public class PlaceData {
 
 
-    private static List<String> types = new ArrayList<>(List.of("shoe park", "shoe"));
+    private static final List<String> types = new ArrayList<>(List.of("shoe park", "shoe"));
 
     // Request Spec Builder that can be used anywhere where we are sending common chaining across Test
 
