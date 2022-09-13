@@ -6,6 +6,7 @@ Feature: To test Place APIs
     Then User should see the status as success with code 200
     And "status" in response is "OK"
     And "scope" in response is "APP"
+    And Verify that palce_id created maps to "<name>" using "getPlaceApi"
 
     Examples:
       | name    | address                  | language |

@@ -27,7 +27,7 @@ Body:
     "language": "Hindi"
 }
 HTTP/1.1 200 OK
-Date: Tue, 13 Sep 2022 07:08:48 GMT
+Date: Tue, 13 Sep 2022 09:43:38 GMT
 Server: Apache/2.4.41 (Ubuntu)
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: POST
@@ -40,10 +40,48 @@ Content-Type: application/json;charset=UTF-8
 
 {
     "status": "OK",
-    "place_id": "15ac4ac1a9f2e001ba16659627557f8e",
+    "place_id": "5c520af6e293b9eef2423ba74736f73c",
     "scope": "APP",
-    "reference": "76637bea6bad3ca6e564d0db2db5196f76637bea6bad3ca6e564d0db2db5196f",
-    "id": "76637bea6bad3ca6e564d0db2db5196f"
+    "reference": "37974c95d3f495f6266dbc3ccfb3f73e37974c95d3f495f6266dbc3ccfb3f73e",
+    "id": "37974c95d3f495f6266dbc3ccfb3f73e"
+}
+Request method:	GET
+Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=5c520af6e293b9eef2423ba74736f73c
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+				place_id=5c520af6e293b9eef2423ba74736f73c
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Date: Tue, 13 Sep 2022 09:43:39 GMT
+Server: Apache/2.4.41 (Ubuntu)
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 238
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "location": {
+        "latitude": "48.74131",
+        "longitude": "34.89813842"
+    },
+    "accuracy": "100",
+    "name": "Shubham",
+    "phone_number": "(+91) 8700195272",
+    "address": "P No 149 Govindpura",
+    "types": "shoe park,shoe",
+    "website": "http://google.com",
+    "language": "Hindi"
 }
 Request method:	POST
 Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
@@ -74,7 +112,7 @@ Body:
     "language": "English"
 }
 HTTP/1.1 200 OK
-Date: Tue, 13 Sep 2022 07:08:49 GMT
+Date: Tue, 13 Sep 2022 09:43:39 GMT
 Server: Apache/2.4.41 (Ubuntu)
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: POST
@@ -87,8 +125,46 @@ Content-Type: application/json;charset=UTF-8
 
 {
     "status": "OK",
-    "place_id": "12ec84d265908df3d93fe0cb960f4571",
+    "place_id": "5f15cbbce6dfd5c0639058d5a853cdfd",
     "scope": "APP",
-    "reference": "e8eb1bc76f664b3427850a6566a2f914e8eb1bc76f664b3427850a6566a2f914",
-    "id": "e8eb1bc76f664b3427850a6566a2f914"
+    "reference": "67722739a25ea962e126db906280c1e167722739a25ea962e126db906280c1e1",
+    "id": "67722739a25ea962e126db906280c1e1"
+}
+Request method:	GET
+Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=5f15cbbce6dfd5c0639058d5a853cdfd
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+				place_id=5f15cbbce6dfd5c0639058d5a853cdfd
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Date: Tue, 13 Sep 2022 09:43:39 GMT
+Server: Apache/2.4.41 (Ubuntu)
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 243
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "location": {
+        "latitude": "48.74131",
+        "longitude": "34.89813842"
+    },
+    "accuracy": "100",
+    "name": "Anish",
+    "phone_number": "(+91) 8700195272",
+    "address": "C-131, Kushak No-2 Delhi",
+    "types": "shoe park,shoe",
+    "website": "http://google.com",
+    "language": "English"
 }
