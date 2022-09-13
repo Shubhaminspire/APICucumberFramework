@@ -4,9 +4,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.RestAssured;
-import io.restassured.internal.http.HTTPBuilder;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
@@ -14,27 +11,22 @@ import resource.PlaceData;
 import resource.Resource;
 import resource.Utils;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AddPlace extends Utils {
-    Response response;
-    Response getResponse;
+    public static Response response;
 
-    RequestSpecification request;
-    RequestSpecification getrequest;
+    public static RequestSpecification request;
 
 
-    Resource resource;
+    public static Resource resource;
 
-    String responseKeyValue;
-    public static String getResponseName = null;
+    public static String responseKeyValue;
+    public static String getResponseName;
+    public static String place_id;
 
 
     @Given("Add Place Payload {string} {string} {string}")
@@ -52,7 +44,7 @@ public class AddPlace extends Utils {
         if (httpMethod.equalsIgnoreCase("Post")) {
             response = request.when().post(resource.getResource());
         } else if (httpMethod.equalsIgnoreCase("Delete")) {
-            response = request.when().delete(resource.getResource());
+            response = request.when().post(resource.getResource());
         } else if (httpMethod.equalsIgnoreCase("get")) {
             response = request.when().get(resource.getResource());
         }
@@ -78,7 +70,7 @@ public class AddPlace extends Utils {
         //ReqSpec Builder
         //  resource = Resource.valueOf(reso);
 
-        String place_id = getResponseData(response, "place_id");
+        place_id = getResponseData(response, "place_id");
         request = given().spec(reqSpec()).queryParam("place_id", place_id);
 
         user_call_the_api_with_post_http_method(reso, "Get");
@@ -88,4 +80,6 @@ public class AddPlace extends Utils {
 
 
     }
+
+
 }

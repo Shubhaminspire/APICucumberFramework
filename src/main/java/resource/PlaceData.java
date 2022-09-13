@@ -18,17 +18,23 @@ public class PlaceData {
 
         AddPlace place = new AddPlace();
         Location loc = new Location();
-        loc.setLat(48.74131);
-        loc.setLng(34.89813842);
+        loc.setLat(48.71231);
+        loc.setLng(35.89813842);
 
-        place.setAccuracy(100);
+        place.setAccuracy(145);
         place.setName(name);
-        place.setPhone_number("(+91) 8700195272");
+        place.setPhone_number("(+91) 8700195273");
         place.setAddress(address);
         place.setWebsite("http://google.com");
         place.setLanguage(language);
         place.setTypes(types);
         place.setLocation(loc);
         return place;
+    }
+
+    public static String getPlaceId(String placeId){
+        return "{\n" +
+                "    \"place_id\":\""+placeId+"\"\n" +
+                "}";
     }
 }

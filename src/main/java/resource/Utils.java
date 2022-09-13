@@ -18,17 +18,17 @@ public class Utils {
     public static RequestSpecification reqSpec;
 
     public static ResponseSpecification resSpec;
-    File file = new File("./logs/Place.txt");
+    public static File file = new File("./logs/Place.txt");
     public static PrintStream printStream;
     public static FileInputStream fileInputStream;
     public static Properties properties;
 
-    public RequestSpecification reqSpec() throws IOException {
+    public static RequestSpecification reqSpec() throws IOException {
         //System.out.println(getGlobalValue("value"));
         if (reqSpec == null) {
             printStream = new PrintStream(file);
             reqSpec = new RequestSpecBuilder().setBaseUri(getGlobalValue("baseUrl"))
-                    .addQueryParam("key", "qaclick123")
+                    .addQueryParam("key", getGlobalValue("key"))
                     //Added Logs to see the Request and Response in External File
                     .addFilter(RequestLoggingFilter.logRequestTo(printStream))
                     .addFilter(ResponseLoggingFilter.logResponseTo(printStream))
@@ -48,7 +48,7 @@ public class Utils {
         return resSpec;
     }
 
-    public String getGlobalValue(String key) throws IOException {
+    public static String getGlobalValue(String key) throws IOException {
         properties = new Properties();
         fileInputStream = new FileInputStream("src/main/java/resource/global.properties");
 

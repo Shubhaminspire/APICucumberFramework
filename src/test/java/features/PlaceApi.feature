@@ -9,8 +9,14 @@ Feature: To test Place APIs
     And Verify that palce_id created maps to "<name>" using "getPlaceApi"
 
     Examples:
-      | name    | address                  | language |
-      | Shubham | P No 149 Govindpura      | Hindi    |
-      | Anish   | C-131, Kushak No-2 Delhi | English  |
+      | name    | address       | language |
+      | Anushka| P No 149 | Hindi   |
+      | Anish  | jaipur    | English  |
+
+  Scenario: Verify that user should delete the Added Place
+    Given Delete API Payload
+    When User call the "deletePlaceApi" API with "delete" Http Method
+    Then User should see the status as success with code 200
+    And "status" in response is "OK"
 
 
