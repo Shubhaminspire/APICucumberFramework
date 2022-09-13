@@ -34,10 +34,19 @@ public class AddPlace extends Utils {
         System.out.println("Hi");
     }
 
-    @When("User call the {string} API with POST Http Method")
-    public void user_call_the_api_with_post_http_method(String resou) {
+    @When("User call the {string} API with {string} Http Method")
+    public void user_call_the_api_with_post_http_method(String resou, String httpMethod) {
+        //create object for Resource Enum Class of resource package using valueOf Method of Enum
       resource = Resource.valueOf(resou);
-        response = request.when().post(resource.getResource()).then().log().all()
+
+      if(httpMethod.equalsIgnoreCase("Post")){
+          response = request.when().post(resource.getResource());
+      } else if (httpMethod.equalsIgnoreCase("Delete")) {
+          response = request.when().delete(resource.getResource());
+      } else if (httpMethod.equalsIgnoreCase("get")) {
+          response = request.when().get(resource.getResource());
+      }
+        response = response.then().log().all()
                 .spec(resSpec()).extract().response();
     }
 
