@@ -1,5 +1,6 @@
 Feature: To test Place APIs
 
+  @AddPlace
   Scenario Outline: Verify that user will be able to add the place using Add Place APIs
     Given Add Place Payload "<name>" "<address>" "<language>"
     When User call the "addPlaceApi" API with "POST" Http Method
@@ -13,6 +14,7 @@ Feature: To test Place APIs
       | Anushka| P No 149 | Hindi   |
       | Anish  | jaipur    | English  |
 
+  @DeletePlace
   Scenario: Verify that user should delete the Added Place
     Given Delete API Payload
     When User call the "deletePlaceApi" API with "delete" Http Method

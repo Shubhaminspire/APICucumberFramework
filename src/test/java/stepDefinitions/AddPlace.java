@@ -58,11 +58,11 @@ public class AddPlace extends Utils {
     }
 
     @And("{string} in response is {string}")
-    public void inResponseIs(String arg0, String arg1) {
+    public void inResponseIs(String key, String value) {
 
-        responseKeyValue = getResponseData(response, arg0);
-        assertEquals(responseKeyValue, arg1);
-        System.out.println(arg0 + ":" + responseKeyValue);
+        responseKeyValue = getResponseData(response, key);
+        assertEquals(responseKeyValue, value);
+        System.out.println(key + ":" + responseKeyValue);
     }
 
     @And("Verify that palce_id created maps to {string} using {string}")
